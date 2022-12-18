@@ -1,0 +1,56 @@
+
+{% block element_image_text %}
+    {% set config = element.fieldConfig.elements %}
+    <div class="cms-element-{{ element.type }}{% if config.fullHeight.value %} is-fullheight{% endif %} {% if config.cssClass.value %}{{ config.cssClass.value|sw_sanitize }}{% endif %}">
+        {% block element_product_slider_alignment %}
+                {% block element_image_text_inner %}
+                    {% set imageTextElement %}
+                        {% block element_image_text_container %}
+                            <div class="cms-image-text-container is-{{ element.translated.config.displayMode.value }}{% if config.hoverAnimation.value %} hover-animation{% endif %}"
+                                 style="--aspect-ratio: {{ config.aspectRatio.value | replace({ ':' : '/' } )}}">
+                                <div class="cms-image-text-content" style="background-color: {{ config.color.value }};">
+                                    {% if not config.disableImage.value and element.data.media.url%}
+                                    <div class="cms-image-text-media" style="opacity: {{ config.opacity.value }};">
+                                        {% block element_image_text_media %}
+                                            {% set attributes = {
+                                                'class': 'cms-image-text',
+                                                'alt': (element.data.media.translated.alt ?: ''),
+                                                'title': (element.data.media.translated.title ?: '')
+                                            } %}
+
+                                            {% if element.translated.config.displayMode.value == 'cover' or element.translated.config.displayMode.value == 'contain' %}
+                                                {% set attributes = attributes|merge({ 'data-object-fit': element.translated.config.displayMode.value }) %}
+                                            {% endif %}
+
+                                            {% sw_thumbnails 'cms-image-text-thumbnails' with {
+                                                media: element.data.media
+                                            } %}
+                                        {% endblock %}
+                                    </div>
+                                    {% endif %}
+                                    <div class="cms-image-text-text"
+                                    style="padding: {{ config.paddingText.value }}; justify-content: {{ config.horizontalAlignText.value }}; align-items: {{ config.verticalAlignText.value }};">
+                                        <div class="cms-image-text-text-inner">
+                                            {% block element_image_text_text %}
+                                                {{ element.data.content|raw }}
+                                            {% endblock %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endset %}
+
+                    {% if element.translated.config.url.value %}
+                        <a href="{{ element.translated.config.url.value }}"
+                           class="cms-image-text-link"
+                           {% if element.translated.config.newTab.value %}target="_blank" rel="noopener"{% endif %}>
+                            {{ imageTextElement }}
+                        </a>
+                    {% else %}
+                        {{ imageTextElement }}
+                    {% endif %}
+                {% endblock %}
+        {% endblock %}
+    </div>
+{% endblock %}

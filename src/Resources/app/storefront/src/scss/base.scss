@@ -1,0 +1,15 @@
+/*
+Basic styles
+==================================================
+Contains the imports to all basic styles.
+
+The file organization follows the 7-1 pattern architecture
+https://sass-guidelin.es/#the-7-1-pattern
+*/
+
+
+/*
+ * Components
+ * ---------- */
+@import 'component/cms-block';
+@import 'component/cms-element';

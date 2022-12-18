@@ -1,0 +1,46 @@
+@import "~scss/variables";
+
+.sw-cms-el-config-image-text {
+    .sw-cms-el-config-image-text__setting-option {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+        gap: 0 32px;
+    }
+
+    .sw-media-upload-v2 {
+        margin-bottom: 22px;
+
+        .sw-media-upload-v2__header {
+            display: none;
+        }
+    }
+
+    .sw-cms-el-config-image-text__mapping-preview {
+        display: grid;
+        width: 100%;
+        height: 200px;
+        justify-items: center;
+        align-items: start;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            overflow: hidden;
+        }
+
+        .sw-cms-el-config-image-text__preview-info {
+            width: 100%;
+        }
+    }
+
+    .sw-cms-el-config-image-text__link-input {
+        &.sw-field {
+            margin-bottom: unset;
+        }
+    }
+
+    .sw-text-editor__content-editor {
+        background-color: #424242;
+    }
+}

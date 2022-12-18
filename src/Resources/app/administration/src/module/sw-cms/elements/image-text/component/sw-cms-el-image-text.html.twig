@@ -1,0 +1,52 @@
+{% block sw_cms_element_image_text %}
+<div
+    class="sw-cms-el-image-text"
+    :class="customCssClass"
+>
+    <div
+        class="sw-cms-el-image-text-container"
+        :class="displayModeClass"
+        :style="styles"
+    >
+    {% block sw_cms_element_image_text_content %}
+        <div
+            class="sw-cms-el-image-text-content"
+            :style="stylesContent"
+        >
+            <div
+                class="sw-cms-el-image-text-media"
+                :style="stylesMedia"
+            >
+                <img
+                    v-if="!element.config.disableImage.value"
+                    :src="mediaUrl"
+                    alt=""
+                >
+            </div>
+            <div class="sw-cms-el-image-text-text"
+                 :style="stylesText"
+            >
+                <div class="cms-image-text-text-inner" >
+                    <div
+                        v-if="element.config.content.source === 'mapped'"
+                        class="sw-cms-el-text__mapping-preview content-editor"
+                        v-html="$sanitize(demoValue)"
+                    ></div>
+
+                    <sw-text-editor
+                        v-else
+                        v-model="element.config.content.value"
+                        :disabled="disabled"
+                        :allow-inline-data-mapping="true"
+                        :is-inline-edit="true"
+                        sanitize-input
+                        @blur="onBlur"
+                        @input="onInput"
+                    />
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}

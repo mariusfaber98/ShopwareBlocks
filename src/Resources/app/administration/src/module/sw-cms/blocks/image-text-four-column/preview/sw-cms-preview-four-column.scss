@@ -1,0 +1,36 @@
+.sw-cms-preview-image-text-four-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 15px;
+    height: 120px;
+
+    .sw-cms-el-preview-image-text-four-column-item {
+        position: relative;
+    }
+
+    .sw-cms-el-preview-image-text-four-column {
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        img {
+            object-fit: cover;
+            display: block;
+            width: 130px;
+            height: 110px;
+        }
+
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    }
+}
