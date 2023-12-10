@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace FlareBlocks;
+namespace CmsBlocks;
 
 use Shopware\Core\Framework\Plugin;
 
-class FlareBlocks extends Plugin
+class CmsBlocks extends Plugin
 {
 }

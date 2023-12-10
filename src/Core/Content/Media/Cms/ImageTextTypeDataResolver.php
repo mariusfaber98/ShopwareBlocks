@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace FlareBlocks\Core\Content\Media\Cms;
+namespace CmsBlocks\Core\Content\Media\Cms;
 
 use FlareBlocks\Core\Content\Cms\SalesChannel\Struct\ImageTextStruct;
 use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
@@ -13,7 +13,6 @@ use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
 use Shopware\Core\Content\Media\MediaDefinition;
 use Shopware\Core\Content\Media\MediaEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Framework\Feature;
 use Shopware\Core\Framework\Util\HtmlSanitizer;
 
 class ImageTextTypeDataResolver extends AbstractCmsElementResolver

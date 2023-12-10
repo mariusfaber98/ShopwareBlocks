@@ -1,18 +1,18 @@
 {
-  "name": "flareblocks/flareblocks",
-  "description": "Flare blocks",
+  "name": "marius-faber/cms-blocks",
+  "description": "Shopware Cms Blocks",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "FlareBlocks\\": "src/"
+      "CmsBlocks\\": "src/"
     }
   },
   "extra": {
-    "shopware-plugin-class": "FlareBlocks\\FlareBlocks",
+    "shopware-plugin-class": "CmsBlocks\\CmsBlocks",
     "label": {
-      "de-DE": "Flare blocks",
-      "en-GB": "Flare blocks"
+      "de-DE": "Cms Blocks",
+      "en-GB": "Cms Blocks"
     }
   }
 }

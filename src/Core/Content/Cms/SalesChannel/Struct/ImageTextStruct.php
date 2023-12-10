@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace FlareBlocks\Core\Content\Cms\SalesChannel\Struct;
+namespace CmsBlocks\Core\Content\Cms\SalesChannel\Struct;
 
 use Shopware\Core\Content\Media\MediaEntity;
 use Shopware\Core\Framework\Struct\Struct;
