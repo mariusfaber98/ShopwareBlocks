@@ -2,7 +2,7 @@
 
 namespace CmsBlocks\Core\Content\Media\Cms;
 
-use FlareBlocks\Core\Content\Cms\SalesChannel\Struct\ImageTextStruct;
+use CmsBlocks\Core\Content\Cms\SalesChannel\Struct\ImageTextStruct;
 use Shopware\Core\Content\Cms\Aggregate\CmsSlot\CmsSlotEntity;
 use Shopware\Core\Content\Cms\DataResolver\CriteriaCollection;
 use Shopware\Core\Content\Cms\DataResolver\Element\AbstractCmsElementResolver;
@@ -10,6 +10,7 @@ use Shopware\Core\Content\Cms\DataResolver\Element\ElementDataCollection;
 use Shopware\Core\Content\Cms\DataResolver\FieldConfig;
 use Shopware\Core\Content\Cms\DataResolver\ResolverContext\EntityResolverContext;
 use Shopware\Core\Content\Cms\DataResolver\ResolverContext\ResolverContext;
+use Shopware\Core\Content\Media\Cms\AbstractDefaultMediaResolver;
 use Shopware\Core\Content\Media\MediaDefinition;
 use Shopware\Core\Content\Media\MediaEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -17,11 +18,12 @@ use Shopware\Core\Framework\Util\HtmlSanitizer;
 
 class ImageTextTypeDataResolver extends AbstractCmsElementResolver
 {
-    private HtmlSanitizer $sanitizer;
-
-    public function __construct(HtmlSanitizer $sanitizer)
+    public function __construct(
+        private readonly AbstractDefaultMediaResolver $mediaResolver,
+        private readonly HtmlSanitizer $sanitizer
+    )
     {
-        $this->sanitizer = $sanitizer;
+
     }
 
     public function getType(): string
@@ -32,7 +34,13 @@ class ImageTextTypeDataResolver extends AbstractCmsElementResolver
     public function collect(CmsSlotEntity $slot, ResolverContext $resolverContext): ?CriteriaCollection
     {
         $mediaConfig = $slot->getFieldConfig()->get('media');
-        if ($mediaConfig === null || $mediaConfig->isMapped() || $mediaConfig->getValue() === null) {
+
+        if (
+            $mediaConfig === null
+            || $mediaConfig->isMapped()
+            || $mediaConfig->isDefault()
+            || $mediaConfig->getValue() === null
+        ) {
             return null;
         }
 
@@ -107,6 +115,14 @@ class ImageTextTypeDataResolver extends AbstractCmsElementResolver
         FieldConfig $config,
         ResolverContext $resolverContext
     ): void {
+        if ($config->isDefault()) {
+            $media = $this->mediaResolver->getDefaultCmsMediaEntity($config->getStringValue());
+
+            if ($media) {
+                $image->setMedia($media);
+            }
+        }
+
         if ($config->isMapped() && $resolverContext instanceof EntityResolverContext) {
             /** @var MediaEntity|null $media */
             $media = $this->resolveEntityValue($resolverContext->getEntity(), $config->getStringValue());

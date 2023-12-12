@@ -51,17 +51,61 @@ General styling for cms elements
             }
         }
 
-        &::after {
-            content: '';
-            display: block;
-            padding-top: calc(100% / (var(--aspect-ratio)));
+
+
+        @include media-breakpoint-only(xs) {
+            &::after {
+                content: '';
+                display: block;
+                padding-top: calc(100% / (var(--aspect-ratio)));
+            }
         }
+
+        @include media-breakpoint-only(sm) {
+            &::after {
+                content: '';
+                display: block;
+                padding-top: calc(100% / (var(--aspect-ratio-sm)));
+            }
+        }
+
+        @include media-breakpoint-only(md) {
+            &::after {
+                content: '';
+                display: block;
+                padding-top: calc(100% / (var(--aspect-ratio-md)));
+            }
+        }
+
+        @include media-breakpoint-only(lg) {
+            &::after {
+                content: '';
+                display: block;
+                padding-top: calc(100% / (var(--aspect-ratio-lg)));
+            }
+        }
+
+        @include media-breakpoint-only(xl) {
+            &::after {
+                content: '';
+                display: block;
+                padding-top: calc(100% / (var(--aspect-ratio-xl)));
+            }
+        }
+
+        @include media-breakpoint-only(xxl) {
+            &::after {
+                content: '';
+                display: block;
+                padding-top: calc(100% / (var(--aspect-ratio-xxl)));
+            }
+        }
+
 
         &.is-cover {
 
             .cms-image-text {
                 object-fit: cover;
-                font-family: 'object-fit: cover;'; // IE polyfill
                 top: 0;
                 right: 0;
                 bottom: 0;
@@ -73,7 +117,6 @@ General styling for cms elements
 
             .cms-image-text {
                 object-fit: contain;
-                font-family: 'object-fit: contain;'; // IE polyfill
                 top: 0;
                 right: 0;
                 bottom: 0;

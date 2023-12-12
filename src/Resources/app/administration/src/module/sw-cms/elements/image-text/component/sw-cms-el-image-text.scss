@@ -32,12 +32,34 @@
             height: 100%;
         }
 
-        &::after {
-            --ratio: calc(var(--aspect-ratio));
-            content: '';
-            display: block;
-            padding-top: calc(100% / var(--ratio));
+        &.is--mobile {
+            &::after {
+                --ratio: calc(var(--aspect-ratio-mobile));
+                content: '';
+                display: block;
+                padding-top: calc(100% / var(--ratio));
+            }
         }
+
+        &.is--tablet-landscape {
+            &::after {
+                --ratio: calc(var(--aspect-ratio-tablet));
+                content: '';
+                display: block;
+                padding-top: calc(100% / var(--ratio));
+            }
+        }
+
+        &.is--desktop {
+            &::after {
+                --ratio: calc(var(--aspect-ratio-desktop));
+                content: '';
+                display: block;
+                padding-top: calc(100% / var(--ratio));
+            }
+        }
+
+
 
         &.is--cover {
 

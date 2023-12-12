@@ -33,6 +33,26 @@ Shopware.Service('cmsService').registerCmsElement({
             source: 'static',
             value: '1:1',
         },
+        aspectRatioSm: {
+            source: 'static',
+            value: '1:1',
+        },
+        aspectRatioMd: {
+            source: 'static',
+            value: '1:1',
+        },
+        aspectRatioLg: {
+            source: 'static',
+            value: '1:1',
+        },
+        aspectRatioXl: {
+            source: 'static',
+            value: '1:1',
+        },
+        aspectRatioXxl: {
+            source: 'static',
+            value: '1:1',
+        },
         fullHeight: {
             source: 'static',
             value: false,

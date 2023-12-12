@@ -1,11 +1,10 @@
 {% block sw_cms_element_image_text %}
 <div
     class="sw-cms-el-image-text"
-    :class="customCssClass"
 >
     <div
         class="sw-cms-el-image-text-container"
-        :class="displayModeClass"
+        :class="[displayModeClass,currentDeviceViewClass]"
         :style="styles"
     >
     {% block sw_cms_element_image_text_content %}

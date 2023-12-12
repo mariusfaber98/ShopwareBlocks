@@ -5,4 +5,10 @@ const { Component } = Shopware;
 
 Component.register('sw-cms-preview-image-text-four-column', {
     template,
+
+    computed: {
+        assetFilter() {
+            return Shopware.Filter.getByName('asset');
+        },
+    },
 });

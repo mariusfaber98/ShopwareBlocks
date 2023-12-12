@@ -4,3 +4,13 @@ CMS blocks
 General styling for cms blocks and
 specific styling for elements dependent on their parent block
 */
+
+
+
+@include media-breakpoint-down(md) {
+  .cms-block-image-text-four-column {
+    .cms-row > :not(:last-child) {
+      margin-bottom: $grid-gutter-width;
+    }
+  }
+}

@@ -138,28 +138,70 @@
                             </option>
                         </sw-select-field>
                     {% endblock %}
+                    {% block sw_cms_element_image_text_config_full_height %}
+                        <sw-switch-field
+                                v-model="element.config.fullHeight.value"
+                                bordered
+                                :label="$tc('sw-cms.elements.imageText.config.label.fullHeight')"
+                        />
+                    {% endblock %}
                     {% block sw_cms_element_image_text_config_hover_animation %}
                         <sw-switch-field
-                            v-model="element.config.hoverAnimation.value"
-                            bordered
-                            :label="$tc('sw-cms.elements.imageText.config.label.hoverAnimation')"
+                                v-model="element.config.hoverAnimation.value"
+                                bordered
+                                :label="$tc('sw-cms.elements.imageText.config.label.hoverAnimation')"
                         />
                     {% endblock %}
                 </div>
                 <div class="sw-cms-el-config-image-text__setting-option">
                     {% block sw_cms_element_image_text_config_aspect_ratio %}
                         <sw-text-field
-                            v-model="element.config.aspectRatio.value"
-                            :label="$tc('sw-cms.elements.imageText.config.label.aspectRatio')"
-                            :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
-                            @input="onChangeAspectRatio"
+                                v-model="element.config.aspectRatio.value"
+                                :label="$tc('sw-cms.elements.imageText.config.label.aspectRatio')"
+                                :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
+                                @input="onChangeAspectRatio"
                         />
                     {% endblock %}
-                    {% block sw_cms_element_image_text_config_full_height %}
-                        <sw-switch-field
-                            v-model="element.config.fullHeight.value"
-                            bordered
-                            :label="$tc('sw-cms.elements.imageText.config.label.fullHeight')"
+                    {% block sw_cms_element_image_text_config_aspect_ratio_sm %}
+                        <sw-text-field
+                                v-model="element.config.aspectRatioSm.value"
+                                :label="$tc('sw-cms.elements.imageText.config.label.aspectRatioSm')"
+                                :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
+                                @input="onChangeAspectRatioSm"
+                        />
+                    {% endblock %}
+                    {% block sw_cms_element_image_text_config_aspect_ratio_md %}
+                        <sw-text-field
+                                v-model="element.config.aspectRatioMd.value"
+                                :label="$tc('sw-cms.elements.imageText.config.label.aspectRatioMd')"
+                                :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
+                                @input="onChangeAspectRatioMd"
+                        />
+                    {% endblock %}
+                </div>
+                <div class="sw-cms-el-config-image-text__setting-option">
+                    {% block sw_cms_element_image_text_config_aspect_ratio_lg %}
+                        <sw-text-field
+                                v-model="element.config.aspectRatioLg.value"
+                                :label="$tc('sw-cms.elements.imageText.config.label.aspectRatioLg')"
+                                :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
+                                @input="onChangeAspectRatioLg"
+                        />
+                    {% endblock %}
+                    {% block sw_cms_element_image_text_config_aspect_ratio_xl %}
+                        <sw-text-field
+                                v-model="element.config.aspectRatioXl.value"
+                                :label="$tc('sw-cms.elements.imageText.config.label.aspectRatioXl')"
+                                :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
+                                @input="onChangeAspectRatioXl"
+                        />
+                    {% endblock %}
+                    {% block sw_cms_element_image_text_config_aspect_ratio_xxl %}
+                        <sw-text-field
+                                v-model="element.config.aspectRatioXxl.value"
+                                :label="$tc('sw-cms.elements.imageText.config.label.aspectRatioXxl')"
+                                :placeholder="$tc('sw-cms.elements.imageText.config.placeholder.enterAspectRatio')"
+                                @input="onChangeAspectRatioXxl"
                         />
                     {% endblock %}
                 </div>

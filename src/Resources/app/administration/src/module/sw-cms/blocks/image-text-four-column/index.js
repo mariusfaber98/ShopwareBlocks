@@ -21,12 +21,6 @@ Shopware.Service('cmsService').registerCmsBlock({
                 config: {
                     displayMode: { source: 'static', value: 'cover' },
                 },
-                data: {
-                    media: {
-                        value: 'framework/assets/default/cms/preview_camera_large.jpg',
-                        source: 'default',
-                    },
-                },
             },
         },
         'center-left': {
@@ -34,12 +28,6 @@ Shopware.Service('cmsService').registerCmsBlock({
             default: {
                 config: {
                     displayMode: { source: 'static', value: 'cover' },
-                },
-                data: {
-                    media: {
-                        value: 'framework/assets/default/cms/preview_plant_large.jpg',
-                        source: 'default',
-                    },
                 },
             },
         },
@@ -49,12 +37,6 @@ Shopware.Service('cmsService').registerCmsBlock({
                 config: {
                     displayMode: { source: 'static', value: 'cover' },
                 },
-                data: {
-                    media: {
-                        value: 'framework/assets/default/cms/preview_glasses_large.jpg',
-                        source: 'default',
-                    },
-                },
             },
         },
         right: {
@@ -62,12 +44,6 @@ Shopware.Service('cmsService').registerCmsBlock({
             default: {
                 config: {
                     displayMode: { source: 'static', value: 'cover' },
-                },
-                data: {
-                    media: {
-                        value: 'framework/assets/default/cms/preview_mountain_large.jpg',
-                        source: 'default',
-                    },
                 },
             },
         },

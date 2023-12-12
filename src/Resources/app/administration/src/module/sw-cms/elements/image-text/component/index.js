@@ -30,10 +30,24 @@ Component.register('sw-cms-el-image-text', {
             return 'test';
         },
 
+        currentDeviceView() {
+            return this.cmsPageState.currentCmsDeviceView;
+        },
+
+        currentDeviceViewClass() {
+            if (this.currentDeviceView) {
+                return `is--${this.currentDeviceView}`;
+            }
+
+            return null;
+        },
+
         styles() {
             return {
                 'height': this.element.config.fullHeight.value ? '100%' : null,
-                '--aspect-ratio': this.element.config.aspectRatio.value.replace(':', '/'),
+                '--aspect-ratio-mobile': this.element.config.aspectRatio.value.replace(':', '/'),
+                '--aspect-ratio-tablet': this.element.config.aspectRatioMd.value.replace(':', '/'),
+                '--aspect-ratio-desktop': this.element.config.aspectRatioLg.value.replace(':', '/')
             };
         },
 
